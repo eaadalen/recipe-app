@@ -1,0 +1,2 @@
+This application allows the user to create and store recipes. For each recipe, information such as title, cooking time, ingredients, and difficulty is documented. 
+This applcation was created using Django.
