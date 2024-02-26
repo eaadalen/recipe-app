@@ -1,11 +1,70 @@
 {% load static %}
 
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <title>{{object.name}} Details</title>
+
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <div class="center-div">
+                <div class="recipes-container-details">
+                    <div class="top-notch-details"></div>
+
+                    <div class="top-details-holder">
+                        <h2 class="details-header">{{object.name}}</h2>
+                        <img src="{{object.pic.url}}" class="recipe-image-details" />
+                    </div>
+
+                    <div class="description-holder">
+                        <p class="details-description">{{object.description}}</p>
+                    </div>
+
+                    <div class="ingredients-details">
+                        <p class="ingredients-details-list"><span class="sub-header">Ingredients:
+                            </span>{{object.ingredients}}</p>
+                    </div>
+
+                    <div class="time-and-difficulty">
+                        <p><span class="sub-header">Cooking Time: </span>{{object.cooking_time}} mins</p>
+                        <p><span class="sub-header">Difficulty: </span>{{object.difficulty}}</p>
+                    </div>
+
+                    <div class="details-button-holder">
+                        <a href="{% url 'recipes:list' %}" class="back-button">Back to List</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+
+</html>
+-->
+
+{% load static %}
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Tasty &mdash; Recipe App</title>
+	<title>{{object.name}} Details</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Erik Aadalen Recipe App" />
 	<meta name="author" content="Erik Aadalen" />
@@ -47,6 +106,40 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
+
+    <br><br><br>
+
+    <div class="flex-container">
+        <div class="center-div">
+            <div class="recipes-container-details">
+                <div class="top-notch-details"></div>
+
+                <div class="top-details-holder">
+                    <h2 class="details-header">{{object.name}}</h2>
+                    <img src="{{object.pic.url}}" class="recipe-image-details" />
+                </div>
+
+                <div class="description-holder">
+                    <p class="details-description" style="color: white">{{object.description}}</p>
+                </div>
+
+                <div class="ingredients-details">
+                    <p class="ingredients-details-list" style="color: white"><span class="sub-header" style="color: white">Ingredients:
+                        </span style="color: white">{{object.ingredients}}</p>
+                </div>
+
+                <div class="time-and-difficulty">
+                    <p style="color: white"><span class="sub-header" style="color: white">Cooking Time: </span>{{object.cooking_time}} mins</p>
+                    <p style="color: white"><span class="sub-header" style="color: white">Difficulty: </span>{{object.difficulty}}</p>
+                </div>
+
+                <div class="details-button-holder">
+                    <a href="{% url 'recipes:list' %}" class="back-button" style="color: white">Back to List</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
 	
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
@@ -57,10 +150,8 @@
                 </div>
                 <div class="col-xs-12 text-center menu-1 menu-wrap">
                     <ul>
-                        <li class="active"><a href="recipes_home.html">Home</a></li>
-                        <li class="has-dropdown">
-                            <a href="list">Recipe List</a>
-                        </li>
+                        <li><a href="../">Home</a></li>
+                        <li class="active"><a href="list">Recipe List</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -69,64 +160,28 @@
         </div>
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" style="background-image: url(hero_1.jpeg);" role="banner" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1>Recipes <em>&amp;</em> More</h1>
-							<h2>Let your palate roam free</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+   <br><br>
 
-	<div id="fh5co-about" class="fh5co-section">
+   <div id="fh5co-featured-menu" class="fh5co-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
-					<img src="{% static 'recipes/images/hero_1.jpeg' %}" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
-				</div>
-				<div class="col-md-5 col-md-push-1 animate-box">
-					<div class="section-heading">
-						<h2>Our Biggest Hits</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae neque quisquam at deserunt ab praesentium architecto tempore saepe animi voluptatem molestias, eveniet aut laudantium alias, laboriosam excepturi, et numquam? Atque tempore iure tenetur perspiciatis, aliquam, asperiores aut odio accusamus, unde libero dignissimos quod aliquid neque et illo vero nesciunt. Sunt!</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam iure reprehenderit nihil nobis laboriosam beatae assumenda tempore, magni ducimus abentey.</p>
-					</div>
-				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
+               <div class="fh5co-item">
+                     {% for object in object_list %}
+                           <a href="{{object.get_absolute_url}}" class="recipe-wrapper">
+                              <div>
+                                 <img src="{{object.pic.url}}" class="img-responsive" height = "200px" />
+                              </div>
+                              <div class="recipe-main-holder" style="color: white">
+                                 <p class="recipe-link" style="color: white">{{object.name}}</p>
+                              </div>
+                           </a>
+                     {% endfor %}
+               </div>
+            </div>
 			</div>
 		</div>
 	</div>
-
-	<div id="fh5co-featured-testimony" class="fh5co-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 fh5co-heading animate-box">
-					<h2>User Reviews</h2>
-					<div class="row">
-						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-5 animate-box img-to-responsive animate-box" data-animate-effect="fadeInLeft">
-						<img src="{% static 'recipes/images/person_1.jpeg' %}" alt="">
-				</div>
-				<div class="col-md-7 animate-box" data-animate-effect="fadeInRight">
-					<blockquote>
-						<p> &ldquo; Quantum ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam. &rdquo;</p>
-						<p class="author"><cite>&mdash; Jane Smith</cite></p>
-					</blockquote>
-				</div>
-			</div>
-		</div>
-	</div>
-
 
 	<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
 		<div class="container">
@@ -207,4 +262,3 @@
 
 	</body>
 </html>
-
