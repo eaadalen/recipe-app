@@ -5,7 +5,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{object.name}} Details</title>
+	<title>Tasty &mdash; Recipe App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Erik Aadalen Recipe App" />
 	<meta name="author" content="Erik Aadalen" />
@@ -47,40 +47,6 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
-
-    <br><br><br>
-
-    <div class="flex-container">
-        <div class="center-div">
-            <div class="recipes-container-details">
-                <div class="top-notch-details"></div>
-
-                <div class="top-details-holder">
-                    <h2 class="details-header">{{object.name}}</h2>
-                    <img src="{{object.pic.url}}" class="recipe-image-details" />
-                </div>
-
-                <div class="description-holder">
-                    <p class="details-description" style="color: white">{{object.description}}</p>
-                </div>
-
-                <div class="ingredients-details">
-                    <p class="ingredients-details-list" style="color: white"><span class="sub-header" style="color: white">Ingredients:
-                        </span style="color: white">{{object.ingredients}}</p>
-                </div>
-
-                <div class="time-and-difficulty">
-                    <p style="color: white"><span class="sub-header" style="color: white">Cooking Time: </span>{{object.cooking_time}} mins</p>
-                    <p style="color: white"><span class="sub-header" style="color: white">Difficulty: </span>{{object.difficulty}}</p>
-                </div>
-
-                <div class="details-button-holder">
-                    <a href="{% url 'recipes:list' %}" class="back-button" style="color: white">Back to List</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
 	
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
@@ -92,8 +58,8 @@
                 <div class="col-xs-12 text-center menu-1 menu-wrap">
                     <ul>
                         <li><a href="../">Home</a></li>
-                        <li><a href="../list">Recipe List</a></li>
-                        <li><a href ="{%url 'logout' %}"> Logout </a></li>
+                        <li class="active"><a href="list">Recipe List</a></li>
+						<li><a href ="{%url 'logout' %}">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,18 +72,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
-               <div class="fh5co-item">
-                     {% for object in object_list %}
-                           <a href="{{object.get_absolute_url}}" class="recipe-wrapper">
-                              <div>
-                                 <img src="{{object.pic.url}}" class="img-responsive" height = "200px" />
-                              </div>
-                              <div class="recipe-main-holder" style="color: white">
-                                 <p class="recipe-link" style="color: white">{{object.name}}</p>
-                              </div>
-                           </a>
-                     {% endfor %}
-               </div>
+               <h1 style="color: white">Login</h1>
+
+               {% if error_message %}
+                  {{error_message}}
+               {% endif %}
+
+               <form action="" method="POST" >
+                  {% comment %} add Django security token {% endcomment %}
+                  {% csrf_token %}   
+
+                  {% comment %} print form received from view  {% endcomment %}
+                  {{form}}           
+
+                  {% comment %} add button {% endcomment %}
+                  <br>
+                  <button type="submit" style="color: black">Submit</button>
+               </form>
             </div>
 			</div>
 		</div>

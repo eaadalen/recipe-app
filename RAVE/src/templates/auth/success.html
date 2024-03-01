@@ -47,40 +47,6 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
-
-    <br><br><br>
-
-    <div class="flex-container">
-        <div class="center-div">
-            <div class="recipes-container-details">
-                <div class="top-notch-details"></div>
-
-                <div class="top-details-holder">
-                    <h2 class="details-header">{{object.name}}</h2>
-                    <img src="{{object.pic.url}}" class="recipe-image-details" />
-                </div>
-
-                <div class="description-holder">
-                    <p class="details-description" style="color: white">{{object.description}}</p>
-                </div>
-
-                <div class="ingredients-details">
-                    <p class="ingredients-details-list" style="color: white"><span class="sub-header" style="color: white">Ingredients:
-                        </span style="color: white">{{object.ingredients}}</p>
-                </div>
-
-                <div class="time-and-difficulty">
-                    <p style="color: white"><span class="sub-header" style="color: white">Cooking Time: </span>{{object.cooking_time}} mins</p>
-                    <p style="color: white"><span class="sub-header" style="color: white">Difficulty: </span>{{object.difficulty}}</p>
-                </div>
-
-                <div class="details-button-holder">
-                    <a href="{% url 'recipes:list' %}" class="back-button" style="color: white">Back to List</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
 	
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
@@ -89,39 +55,25 @@
                 <div class="col-xs-12 text-center logo-wrap">
                     <div id="fh5co-logo"><a href="recipes_home.html">Tasty<span>.</span></a></div>
                 </div>
-                <div class="col-xs-12 text-center menu-1 menu-wrap">
-                    <ul>
-                        <li><a href="../">Home</a></li>
-                        <li><a href="../list">Recipe List</a></li>
-                        <li><a href ="{%url 'logout' %}"> Logout </a></li>
-                    </ul>
-                </div>
             </div>
         </div>
 	</nav>
 
-   <br><br>
-
-   <div id="fh5co-featured-menu" class="fh5co-section">
+    <header id="fh5co-header" class="fh5co-cover js-fullheight" style="background-image: url(hero_1.jpeg);" role="banner" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
-               <div class="fh5co-item">
-                     {% for object in object_list %}
-                           <a href="{{object.get_absolute_url}}" class="recipe-wrapper">
-                              <div>
-                                 <img src="{{object.pic.url}}" class="img-responsive" height = "200px" />
-                              </div>
-                              <div class="recipe-main-holder" style="color: white">
-                                 <p class="recipe-link" style="color: white">{{object.name}}</p>
-                              </div>
-                           </a>
-                     {% endfor %}
-               </div>
-            </div>
+				<div class="col-md-12 text-center">
+					<div class="display-t js-fullheight">
+						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+							<h2>Logout Successful</h2>
+                            <a href ="{%url 'login' %}"> Login </a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+	</header>
 
 	<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
 		<div class="container">
