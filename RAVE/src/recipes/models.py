@@ -7,6 +7,7 @@ class Recipe(models.Model):
     cooking_time = models.TextField()
     ingredients_list = models.TextField()
     difficulty = models.TextField()
+    date_created = models.DateField()
     pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
 
     def __str__(self):
@@ -16,17 +17,17 @@ class Recipe(models.Model):
         return reverse ("recipes:detail", kwargs={"pk": self.pk})
     
     def return_ingredients_as_list(self):
-        return self.ingredients.split(",")
+        return self.ingredients_list.split(",")
     
     def calculate_difficulty(self):
         num_ingredients = len(self.return_ingredients_as_list())
-        if self.cooking_time < 10 and num_ingredients < 4:
+        if int(self.cooking_time) < 10 and int(num_ingredients) < 4:
             return "Easy"
-        elif self.cooking_time < 10 and num_ingredients >= 4:
+        elif int(self.cooking_time) < 10 and int(num_ingredients) >= 4:
             return "Medium"
-        elif self.cooking_time >= 10 and num_ingredients < 4:
+        elif int(self.cooking_time) >= 10 and int(num_ingredients) < 4:
             return "Intermediate"
-        elif self.cooking_time >= 10 and num_ingredients >= 4:
+        elif int(self.cooking_time) >= 10 and int(num_ingredients) >= 4:
             return "Hard"
         
     def save(self, *args, **kwargs):
